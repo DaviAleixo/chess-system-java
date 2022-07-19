@@ -28,10 +28,10 @@ public class UI {
 	
 
 	public static void printBoard(ChessPiece[][] pieces) {
-		for (int i = 0; i < pieces.length; i++) {
-			System.out.print((8 - i) + " ");
-			for (int j = 0; j < pieces.length; j++) {
-				printPiece(pieces[i][j]);
+		for (int col = 0; col < pieces.length; col++) {
+			System.out.print((8 - col) + " ");
+			for (int row = 0; row < pieces.length; row++) {
+				printPiece(pieces[col][row]);
 			}
 			System.out.println();
 		}
@@ -39,13 +39,7 @@ public class UI {
 	}
 
 	private static void printPiece(ChessPiece piece) {
-		if (piece == null) {
-			System.out.print("-");
-		}
-		else {
-			System.out.print(piece);
-		}
-		System.out.print(" ");
+
     	if (piece == null) {
             System.out.print("-");
         }
