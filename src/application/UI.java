@@ -51,17 +51,32 @@ public class UI {
 		for (int col = 0; col < pieces.length; col++) {
 			System.out.print((8 - col) + " ");
 			for (int row = 0; row < pieces.length; row++) {
-				printPiece(pieces[col][row]);
+				printPiece(pieces[col][row],false);
+			}
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h");
+	}
+	
+	public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
+		for (int col = 0; col < pieces.length; col++) {
+			System.out.print((8 - col) + " ");
+			for (int row = 0; row < pieces.length; row++) {
+				printPiece(pieces[col][row], possibleMoves[col][row]);
 			}
 			System.out.println();
 		}
 		System.out.println("  a b c d e f g h");
 	}
 
-	private static void printPiece(ChessPiece piece) {
+	private static void printPiece(ChessPiece piece, boolean backgroud) {
+		if (backgroud) {
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
+		
 
 		if (piece == null) {
-			System.out.print("-");
+			System.out.print("-"+ ANSI_RESET);
 		} else {
 			if (piece.getColor() == Color.WHITE) {
 				System.out.print(ANSI_WHITE + piece + ANSI_RESET);
